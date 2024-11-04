@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>겜블링 게임</title>
+    <style>
+        .container{
+            display: flex;
+            border: 1px solid violet;
+            background-color: beige;
+            width: 150px;
+            height: 50px;
+        }
+        .box{
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+        } 
+        .box:last-child { 
+            border-right: 1px solid black;
+        }
+        .winner { 
+            color: purple; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>겜블링 게임</h3>
+    <p>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+    <hr>
+    <div class="container">
+        <div id="box1" class="box" onclick="changeNumber(1)">0</div>
+        <div id="box2" class="box" onclick="changeNumber(2)">0</div>
+        <div id="box3" class="box" onclick="changeNumber(3)">0</div>
+    </div>
+    <p id="result" class="winner" onclick="resetgame()"></p>
+
+    <script>
+        function changeNumber(box) { 
+            let element = document.getElementById("box" + box); 
+            let randomNumber = Math.floor(Math.random()*3)
+            element.textContent = randomNumber;
+
+            if (box ==3){
+                checkWin()
+            }
+        } 
+        function checkWin() { 
+            let box1 = document.getElementById("box1").textContent; 
+            let box2 = document.getElementById("box2").textContent; 
+            let box3 = document.getElementById("box3").textContent; 
+            let result = document.getElementById("result");
+            if (box1 === box2 && box2 === box3) { 
+                result.textContent = "Success(click here to do again)"; 
+            } else { 
+                result.textContent = "Fail(click here to do again)"; 
+            }
+        }
+        function resetgame(){
+            document.getElementById("box1").textContent="0";
+            document.getElementById("box2").textContent="0";
+            document.getElementById("box3").textContent="0";
+            document.getElementById("result").textContent="";
+        }
+    </script>
+</body>
+</html>
