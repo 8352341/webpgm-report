@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>z-index 스타일 프로퍼티</title>
+    <style>
+        div {
+            position: absolute;
+        }
+
+        img {
+            position: absolute;
+        }   
+    </style>
+</head>
+<body>
+    <h3>z-index 스타일 프로퍼티</h3>
+    <hr>
+    <div>
+        <img src="../p.383~389/A.png" alt="A" height="140px" width="100px">
+        <img src="../p.383~389/2.png" alt="2" height="140px" width="100px">
+        <img src="../p.383~389/3.png" alt="3" height="140px" width="100px">
+        <img src="../p.383~389/7.png" alt="7" height="140px" width="100px">
+    </div>
+
+    <script>
+        let imgarr = document.getElementsByTagName("img");
+
+        for(let i=0; i<imgarr.length; i++){
+            let obj = imgarr[i];
+            obj.style.zIndex = i;
+            obj.style.left = "10px";
+            obj.style.top = "20px;"
+
+            obj.onclick = a;
+        }
+
+        function a(){
+            for(let i=0; i<imgarr.length; i++){
+                let obj = imgarr[i];
+                obj.style.zIndex++;
+                obj.style.zIndex %= imgarr.length;
+            }
+        }
+    </script>
+</body>
+</html>
