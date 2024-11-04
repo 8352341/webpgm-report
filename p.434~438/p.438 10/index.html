@@ -2,74 +2,78 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>onmousover과 onmouseout</title>
-</head>
-<body onload="init()">
-    <h3>아잉템에 마우스를 올리면 설명 출력</h3>
-    <hr>
-    <p>여름 방학 때 하고 싶은 것들</p>
-    <ul>
-        <li id="0">자전거로 대한민국 일주</li>
-        <li id="1">책 100권 읽기</li>
-        <li id="2">철인 3종 경기 준비</li>
-        <li id="3">자바스크립트 정복</li>
-    </ul>
-    <div id="div" style="position: absolute"></div>
-
-    <script>
-        let text = [
-            "빨간 자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다", 
-            "책 100권을 읽는다.",
-            "수영을하고 자전거를 타고 뛴다",
-            "백준 사이트를 사용하여 문제를 푼다"
-        ]
-        let div;
-
-        function init(){
-            div = document.getElementById("div");
-
-            let liArr = document.getElementsByTagName("li");
-            for(let i=0; i<liArr.length; i++){
-                liArr[i].addEventListener("mouseover", over, false);
-                liArr[i].addEventListener("mouseout", hideDiv, false);
-            }
+    <title>계산기 만들기</title>
+    <style>
+        input {
+            width: 99%;
         }
-
-        function over(e){
-            let n = 0;
-            switch(e.target.id){
-                case "0":
-                    n=0;
-                    break;
-                
-                case "1":
-                    n=1;
-                    break;
-                
-                case "2":
-                    n=2;
-                    break;
-
-                case "3":
-                    n=3;
-                    break;
-            }
-            setDiv(text[n], e);
+        table {
+            text-align: center;
         }
-
-        function setDiv(text, e){
-            div.innerHTML = text;
-            div.style.left = e.clientX + "px";
-            div.style.top = e.clientY + "px";
-            div.style.border = "1px solid yellowgreen";
-            div.style.background = "aliceblue";
-            div.style.visibility = "visible";
-            div.style.width = "200px";
-            div.style.height = "80px";
+        td {
+            width: 100px;
         }
         
-        function hideDiv(){
-            div.style.visibility = "hidden";
+    </style>
+</head>
+<body>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <input type="text" id="input" value="0">
+    <table>
+        <tr colspan=4>
+            <td><input type="button" value="Back" onclick="BackSpace()"></td>
+            <td><input type="button" value="CE" onclick="evalClear()"></td>
+            <td><input type="button" value="C" onclick="evalClear()"></td>
+            <td><input type="button" value="=" onclick="compute()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="number('7')"></td>
+            <td><input type="button" value="8" onclick="number('8')"></td>
+            <td><input type="button" value="9" onclick="number('9')"></td>
+            <td><input type="button" value="/" onclick="number('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="number('4')"></td>
+            <td><input type="button" value="5" onclick="number('5')"></td>
+            <td><input type="button" value="6" onclick="number('6')"></td>
+            <td><input type="button" value="*" onclick="number('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="number('1')"></td>
+            <td><input type="button" value="2" onclick="number('2')"></td>
+            <td><input type="button" value="3" onclick="number('3')"></td>
+            <td><input type="button" value="-" onclick="number('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="number('0')"></td>
+            <td><input type="button" value="+" onclick="number('+')"></td>
+            <td><input type="button" value="NONE"></td>
+            <td><input type="button" value="NONE"></td>
+        </tr>
+    </table>
+
+    <script>
+        let expression = "";
+
+        function number(num){
+            expression += num;
+            document.getElementById("input").value = expression;
+        }
+
+        function compute(){
+            expression = eval(expression);
+            document.getElementById("input").value = expression;
+        }
+
+        function evalClear(){
+            expression = "";
+            document.getElementById("input").value = expression;
+        }
+
+        function BackSpace(){
+            expression = expression.substring(0, expression.length-1);
+            document.getElementById("input").value = expression;
         }
     </script>
 </body>
