@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>눈 내리는 효과</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="startSnowfall()">
+    <script>
+        let snowflakes = [];
+        const numberOfSnowflakes = 30;
+
+        function createSnowflakes() {
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                let snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '*';
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.top = Math.random() * window.innerHeight + 'px';
+                document.body.appendChild(snowflake);
+                snowflakes.push(snowflake);
+            }
+        }
+
+        function moveSnowflakes() {
+            snowflakes.forEach(snowflake => {
+                let y = parseFloat(snowflake.style.top);
+                let x = parseFloat(snowflake.style.left);
+                y += Math.random() * 2 + 1;
+                x += Math.sin(y / 50) * 2;
+                if (y > window.innerHeight) {
+                    y = -10;
+                    x = Math.random() * window.innerWidth;
+                }
+                snowflake.style.top = y + 'px';
+                snowflake.style.left = x + 'px';
+            });
+        }
+
+        function startSnowfall() {
+            createSnowflakes();
+            setInterval(moveSnowflakes, 50);
+        }
+    </script>
+</body>
+</html>
