@@ -1,0 +1,10 @@
+body{
+    background-image: url("./snow.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.snowflake { 
+    position: absolute; 
+    color: white; 
+    font-size: 20px; 
+}
