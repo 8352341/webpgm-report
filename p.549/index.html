@@ -24,16 +24,12 @@
                 alert("지원하지 않습니다.");
                 return;
             }
-
-            // 키
             let engWord = document.getElementById("eng");
             engWord = engWord.value.trim();
 
-            // 값
             let korWord = document.getElementById("kor");
             korWord = korWord.value.trim();
 
-            // 단어 있을 때
             if(localStorage.getItem(engWord) != null){
                 let chk = confirm(engWord + "가 이미 잇습니다. 수정하시겠습니까?");
                 if(chk == false){
@@ -41,7 +37,6 @@
                 }
             }
 
-            // 저장 아님 수정
             let word = localStorage.setItem(engWord, korWord);
 
             document.getElementById("eng").value = "";
