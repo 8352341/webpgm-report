@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 트리 라이브러리</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>자바스크립트 기초</h1>
+        <div id="treeview"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var treeData = [
+                {
+                    text: "1. 문법 기초",
+                    nodes: [
+                        {
+                            text: "1.1 변수",
+                            nodes: [
+                                {
+                                    text: "1.1.1 변수 만들기",
+                                    nodes: [
+                                        {
+                                            text: "1.1.1.1 나이가 담긴 변수",
+                                            nodes: [
+                                                {
+                                                    text: '&lt;script&gt;var name="kimsanghoon", age=24;&lt;/script&gt;'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    text: "1.1.2 이름과 나이가 담긴 변수"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            $('#treeview').treeview({
+                data: treeData
+            });
+        });
+    </script>
+</body>
+</html>
