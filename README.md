@@ -56,10 +56,10 @@
     - [자기소개 페이지 만들기](selfintroduce)
   
    - 1105
-    - [ai로 ppt만들기](node.js)
+     - [ai로 ppt만들기](node.js)
   
   - 1111
     - [cssframework](cssframework)
 
   - 1111
-    - [트리라이브러리 실](11-26실습)
+    - [트리라이브러리 실습](11-26실습)
