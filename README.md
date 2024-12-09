@@ -3,15 +3,15 @@
  
 ### 주차별 과제
 - 0924
- - [Open Challenge 1](P.58) 
+  - [Open Challenge 1](P.58) 
 
- - [Open Challenge 2](P.104) 
+  - [Open Challenge 2](P.104) 
  
 - 1006
- - [2장 실습문제](p.107~110)
+  - [2장 실습문제](p.107~110)
 
- - [Open Challenge 3](p.151)
- - [3장 실습문제](p.153~155)
+  - [Open Challenge 3](p.151)
+  - [3장 실습문제](p.153~155)
   
 - 1015
   - [Open Challenge 4](p.202)
